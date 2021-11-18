@@ -89,7 +89,7 @@ extension IDKitString on String {
       .hasMatch(this);
 
   /// Verify whether it is a string composed of 0-9.
-  bool isAllNumber() => RegExp(r'\d+').hasMatch(this);
+  bool isAllNumber() => RegExp(r'\d+$').hasMatch(this);
 
   /// Amount formatted in thousandths.
   String thousands() {
