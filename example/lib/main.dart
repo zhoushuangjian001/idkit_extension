@@ -10,6 +10,8 @@ void main() {
   toVerifyNumber();
   toAmount();
   toStringFromList();
+  formStringToKeepPoint();
+  formNumToKeepPoint();
 }
 
 /// 1. Remove all spaces in the string.
@@ -86,4 +88,73 @@ void toStringFromList() {
 
   const List<String> list1 = <String>['2021', '11', '17'];
   print(list1.splicing('-')); // 2021-11-17
+}
+
+/// 11. Convert a string of numbers to a number with specified decimal places
+void formStringToKeepPoint() {
+  final String a = '111.03'.keepFractionDigits(0);
+  print(a);
+
+  final String b = '111.03'.keepFractionDigits(1);
+  print(b);
+
+  final String c = '111.03'.keepFractionDigits(2);
+  print(c);
+
+  final String d = '111.03'.keepFractionDigits(3);
+  print(d);
+
+  final String e = '111'.keepFractionDigits(2);
+  print(e);
+
+  final String f = '111.034'.keepFractionDigits(2);
+  print(f);
+
+  final String f1 = '111.036'.keepFractionDigits(2);
+  print(f1);
+
+  final String f2 = '111.036'.keepFractionDigits(2, round: false);
+  print(f2);
+
+  final String g = '111.996'.keepFractionDigits(2);
+  print(g);
+
+  final String g1 = '111.994'.keepFractionDigits(2);
+  print(g1);
+
+  final String h = 'xx23343'.keepFractionDigits(3);
+  print(h);
+}
+
+/// 12. Convert a string of numbers to a number with specified decimal places
+void formNumToKeepPoint() {
+  final String a = 111.03.keepFractionDigits(0);
+  print(a);
+
+  final String b = 111.03.keepFractionDigits(1);
+  print(b);
+
+  final String c = 111.03.keepFractionDigits(2);
+  print(c);
+
+  final String d = 111.03.keepFractionDigits(3);
+  print(d);
+
+  final String e = 111.keepFractionDigits(2);
+  print(e);
+
+  final String f = 111.034.keepFractionDigits(2);
+  print(f);
+
+  final String f1 = 111.036.keepFractionDigits(2);
+  print(f1);
+
+  final String f2 = 111.036.keepFractionDigits(2, round: false);
+  print(f2);
+
+  final String g = 111.996.keepFractionDigits(2);
+  print(g);
+
+  final String g1 = 111.994.keepFractionDigits(2);
+  print(g1);
 }

@@ -120,4 +120,41 @@ extension IDKitString on String {
     }
     return result;
   }
+
+  /// Convert a number string to a string with specified decimal places.
+  /// [fractionDigits] : Number of decimal places.
+  /// [round] : Carry processing, default true carry , false no carry.
+  String keepFractionDigits(int fractionDigits, {bool round = true}) {
+    late String result = this;
+    final bool regular = double.tryParse(this) == null;
+    if (regular) {
+      // 不合法
+      if (fractionDigits != null && fractionDigits != 0) {
+        result = '0.' + '0' * fractionDigits;
+      } else {
+        result = '0';
+      }
+    } else {
+      final bool point = contains(RegExp(r'\.'));
+      if (point) {
+        final List<String> list = split(RegExp(r'\.'));
+        late final String firstPart = list.first;
+        late final String lastPart = list.last;
+        if (round) {
+          // 进位处理
+          final double value = double.parse(this);
+          result = value.toStringAsFixed(fractionDigits);
+        } else {
+          // 不进位
+          result = firstPart + '.' + lastPart.substring(0, fractionDigits);
+        }
+      } else {
+        // 不含小数
+        if (fractionDigits != 0) {
+          result += '.' + '0' * fractionDigits;
+        }
+      }
+    }
+    return result;
+  }
 }

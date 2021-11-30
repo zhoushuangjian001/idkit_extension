@@ -1,6 +1,6 @@
 name: idkit_extension
 description: This package is mainly used to extend common functions of some classes in Flutter development, making it more convenient and simple for developers to develop.
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/zhoushuangjian001/idkit_extension
 
 environment:

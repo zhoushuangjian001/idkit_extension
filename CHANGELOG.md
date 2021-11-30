@@ -32,3 +32,28 @@
     ```dart
     1. splicing() -> String
     ```
+
+## 0.0.2
+
+- New method extension.
+
+  - String
+
+    1. Convert a number string to a string with specified decimal places.
+
+  - Num
+    1. Convert a number to a string with specified decimal places.
+
+- Extension methods of each new extension class.
+
+  - String
+
+    ```dart
+    keepFractionDigits(int,{bool}) -> String
+    ```
+
+  - Num
+
+    ```dart
+    keepFractionDigits(int,{bool}) -> String
+    ```
