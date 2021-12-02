@@ -49,11 +49,32 @@
   - String
 
     ```dart
-    keepFractionDigits(int,{bool}) -> String
+    1. keepFractionDigits(int,{bool}) -> String
     ```
 
   - Num
 
     ```dart
-    keepFractionDigits(int,{bool}) -> String
+    1. keepFractionDigits(int,{bool}) -> String
+    ```
+
+## 0.0.3
+
+- New method extension.
+
+  - List
+    1. Collection object value copy
+  - Map
+    1. Copy the value of the key-value collection
+    2. A key-value collection gets a new key-value from another key-value collection
+
+- Extension methods of each new extension class.
+  - List
+    ```dart
+    1. copy({bool}) -> List
+    ```
+  - Map
+    ```dart
+    1. copy() -> Map
+    2. copyFrom() -> Map
     ```

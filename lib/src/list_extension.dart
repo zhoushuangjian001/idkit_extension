@@ -12,4 +12,19 @@ extension IDKitList<E> on List<E> {
     }
     return buffer.toString();
   }
+
+  /// Copy the value of the object.
+  /// [growable] Can the generated collection be variable.
+  ///
+  /// The method is to solve the following problems:
+  /// ```dart
+  /// List<int> a = <int>[1,2,3];
+  /// List<int> b = a;
+  /// a.add(4);
+  /// print(a); // [1,2,3,4]
+  /// print(b); // [1,2,3,4]
+  /// ```
+  List<E> copy({bool growable = true}) {
+    return List<E>.from(this, growable: growable);
+  }
 }

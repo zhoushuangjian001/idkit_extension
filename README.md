@@ -121,3 +121,46 @@ This package is mainly used to extend common functions of some classes in Flutte
       print(list1.splicing('-')); // 2021-11-17
   }
   ```
+
+# - 0.0.3 Update content introduction
+
+#### 1. Add a method to copy the value of the collection object
+
+```dart
+void listCopyValue() {
+  final List<int> a = <int>[1, 2, 3];
+  final List<int> b = a.copy();
+  a.add(4);
+  print(a); // [1,2,3,4]
+  print(b); // [1,2,3]
+}
+```
+
+#### 2. Copy the value of the key-value collection
+
+```dart
+void mapCopy() {
+  final Map<String, String> a = <String, String>{'a': '10', 'b': '20'};
+  final Map<String, String> b = a;
+  final Map<String, String> c = a.copy();
+  a['a'] = '00';
+  print(a); // {a: 00, b: 20}
+  print(b); // {a: 00, b: 20}
+  print(c); // {a: 10, b: 20}
+}
+```
+
+#### 3. A key-value collection gets a new key-value from another key-value collection
+
+```dart
+void mapCopyMap() {
+  final Map<String, String> a = <String, String>{'a': '10'};
+  final Map<String, String> b = <String, String>{
+    'a': '00',
+    'b': '10',
+    'c': '20'
+  };
+  final Map<String, String> c = a.copyFrom(b);
+  print(c); // {a: 10, b: 10, c: 20}
+}
+```

@@ -12,6 +12,8 @@ void main() {
   toStringFromList();
   formStringToKeepPoint();
   formNumToKeepPoint();
+  listCopyValue();
+  mapCopy();
 }
 
 /// 1. Remove all spaces in the string.
@@ -157,4 +159,36 @@ void formNumToKeepPoint() {
 
   final String g1 = 111.994.keepFractionDigits(2);
   print(g1);
+}
+
+/// 12. Collection object value copy
+void listCopyValue() {
+  final List<int> a = <int>[1, 2, 3];
+  final List<int> b = a.copy();
+  a.add(4);
+  print(a); // [1,2,3,4]
+  print(b); // [1,2,3]
+}
+
+/// 13. Copy the value of the key-value collection
+void mapCopy() {
+  final Map<String, String> a = <String, String>{'a': '10', 'b': '20'};
+  final Map<String, String> b = a;
+  final Map<String, String> c = a.copy();
+  a['a'] = '00';
+  print(a); // {a: 00, b: 20}
+  print(b); // {a: 00, b: 20}
+  print(c); // {a: 10, b: 20}
+}
+
+/// 14. A key-value collection gets a new key-value from another key-value collection
+void mapCopyMap() {
+  final Map<String, String> a = <String, String>{'a': '10'};
+  final Map<String, String> b = <String, String>{
+    'a': '00',
+    'b': '10',
+    'c': '20'
+  };
+  final Map<String, String> c = a.copyFrom(b);
+  print(c); // {a: 10, b: 10, c: 20}
 }
